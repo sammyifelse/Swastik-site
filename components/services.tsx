@@ -64,28 +64,70 @@ export function Services() {
       delay: 0.1
     },
     {
-      title: "Outdoor Signage & Hoardings",
-      description: "Maximize your brand's visibility with impactful outdoor signage and hoardings. From design to installation, we ensure your message stands out.",
-      icon: "🏙️",
+      title: "PR Management",
+      description: "Build and maintain a strong public image with our strategic PR services, focusing on media relations and reputation management.",
+      icon: "🗣️",
       delay: 0.2
     },
     {
-      title: "Shop Boards & In-Store Branding",
-      description: "Create immersive brand experiences right at the point of sale. Our in-store branding solutions enhance customer engagement and sales.",
-      icon: "🏪",
+      title: "Printing Services",
+      description: "High-quality printing solutions for all your marketing collaterals, from brochures and flyers to business cards.",
+      icon: "🖨️",
       delay: 0.3
     },
     {
-      title: "Social Media Management",
-      description: "Harness the power of social platforms. We manage your social media presence, curate engaging content, and build a vibrant online community.",
-      icon: "📱",
+      title: "Outdoor Advertising",
+      description: "Maximize your brand's visibility with impactful outdoor advertising, including signage and hoardings. From design to installation, we ensure your message stands out.",
+      icon: "🏙️",
       delay: 0.4
     },
     {
-      title: "Graphic Design & Branding",
+      title: "Website Development",
+      description: "Craft stunning, responsive, and high-performing websites tailored to your business needs, ensuring a strong online presence.",
+      icon: "🌐",
+      delay: 0.5
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Harness the power of social platforms. We manage your social media presence, curate engaging content, and build a vibrant online community.",
+      icon: "📱",
+      delay: 0.6
+    },
+    {
+      title: "Graphic Designing",
       description: "From captivating logos to complete brand identities, our graphic design services ensure your brand looks professional and memorable across all mediums.",
       icon: "🎨",
-      delay: 0.5
+      delay: 0.7
+    },
+    {
+      title: "Photography & Videography",
+      description: "Capture your brand's essence with professional photography and videography services for marketing content and corporate needs.",
+      icon: "📸",
+      delay: 0.8
+    },
+    {
+      title: "Camera Rental Service",
+      description: "Access professional camera equipment for your projects with our flexible and affordable rental options.",
+      icon: "📷",
+      delay: 0.9
+    },
+    {
+      title: "Profile Branding",
+      description: "Develop a compelling personal or corporate brand profile that resonates with your audience and stands out in the market.",
+      icon: "👤",
+      delay: 1.0
+    },
+    {
+      title: "Google Ads & SEO",
+      description: "Boost your online visibility with targeted Google Ads campaigns and organic search engine optimization strategies.",
+      icon: "🔍",
+      delay: 1.1
+    },
+    {
+      title: "Content Writing",
+      description: "Engage your audience with compelling and SEO-friendly content, including articles, blogs, website copy, and marketing materials.",
+      icon: "✍️",
+      delay: 1.2
     },
   ];
 

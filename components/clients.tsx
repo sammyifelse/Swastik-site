@@ -49,18 +49,17 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const clients = [
-    { name: "BELVED", delay: 0.1 },
-    { name: "airtel", delay: 0.15 },
-    { name: "SAMSUNG", delay: 0.2 },
-    { name: "LG", delay: 0.25 },
-    { name: "SONY", delay: 0.3 },
-    { name: "ASUS", delay: 0.35 },
-    { name: "3M", delay: 0.4 },
-    { name: "Cheil", delay: 0.45 },
-    { name: "ALVON", delay: 0.5 },
-    { name: "starflex", delay: 0.55 },
-  ];
-
+    { name: "Topcem Cement", delay: 0.1 },
+    { name: "Barak Valley Cements ", delay: 0.15 },
+    { name: "Kaziranga Automobiles", delay: 0.2 },
+    { name: "Prag News", delay: 0.25 },
+    { name: "NE Taxi", delay: 0.3 },
+    { name: "Akshar Foundation", delay: 0.35 },
+    { name: "Mohan Motors", delay: 0.4 },
+    { name: "Nezone Tubes", delay: 0.45 },
+    { name: "Kanha Group", delay: 0.5 },
+    { name: "Assam Carbon Products", delay: 0.55 },
+];
   return (
     <section id="clients" className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">

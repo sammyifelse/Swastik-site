@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -13,7 +14,7 @@ export function Hero() {
       </div>
       
       <div className="container mx-auto px-4 pt-24 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12">
           <motion.div 
             className="flex-1 text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +37,7 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Who We Are About Swastika Advertising
+              Who We Are About Swastik Advertising
             </motion.h2>
             
             <motion.p 
@@ -82,10 +83,13 @@ export function Hero() {
           >
             <div className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1">
               <div className="bg-card rounded-xl overflow-hidden aspect-video relative">
-                {/* Placeholder for hero image */}
-                <div className="absolute inset-0 flex items-center justify-center bg-muted/20">
-                  <p className="text-muted-foreground text-sm">Marketing campaign visualization</p>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Swastika Advertising Logo"
+                  fill
+                  className="object-contain p-4"
+                  priority
+                />
               </div>
             </div>
           </motion.div>

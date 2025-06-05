@@ -41,11 +41,11 @@ export function About() {
           </motion.h2>
           
           <motion.h3 variants={itemVariants} className="text-xl md:text-2xl text-primary mb-8">
-            We are, Swastika Advertising Company
+            "Swastik enterprise” Swastik is a multi-creative advertising agency, who delivers strong branding identity through various communications across all media.
           </motion.h3>
           
           <motion.p variants={itemVariants} className="text-lg mb-6 text-muted-foreground">
-            Driven by a deep love for creating impactful digital experiences, we thrive on bringing ideas to life from conceptualization to deployment, building scalable, efficient, and user-friendly advertising solutions.
+            Swastik Enterprise is a top creative advertising  agency in Northeastern India. We specialize in branding and media promotion. We offer creative solutions that work both online and offline. Our goal is to provide the best advertising solutions for our clients, whether individual, small businesses, or big companies. We tailor our services to meet the unique needs of each client.
           </motion.p>
           
           <motion.p variants={itemVariants} className="text-lg mb-6 text-muted-foreground">
@@ -53,7 +53,10 @@ export function About() {
           </motion.p>
           
           <motion.p variants={itemVariants} className="text-lg mb-6 text-muted-foreground">
-            With years of industry experience, our team combines creativity with technical expertise to deliver results that exceed expectations and help our clients stand out in today's competitive marketplace.
+            We are a committed group of people who believes in flexibility, hard-work, on-time schedule, client commitment and teamwork as the basis of a healthy work culture.
+          </motion.p>
+          <motion.p variants={itemVariants} className="text-lg mb-6 text-muted-foreground">
+            We are committed to our clients and consider their choices and wants as our topmost priority. We consider their needs and issues with utmost care and believe in providing a holistic approach through creative solutions.
           </motion.p>
           
           <motion.div 

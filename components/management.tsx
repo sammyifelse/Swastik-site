@@ -41,15 +41,15 @@ export function Management() {
 
   const team = [
     {
-      name: "Mr. ABC",
+      name: "Mr.Tridip Saikia",
       title: "Founder & CEO",
-      bio: "Mr. ABC is a visionary leader with 15 years of experience in the advertising industry. He is dedicated to driving innovation and client success at Swastika Advertising.",
+      bio: "Mr. Tridip Saikia is a visionary leader with 15 years of experience in the advertising industry. He is dedicated to driving innovation and client success at Swastik Advertising.",
       delay: 0.1
     },
     {
-      name: "Mrs. ABC",
+      name: "Mrs. Archita Duarah ",
       title: "Co-Founder & Creative Director",
-      bio: "Mrs. ABC brings extensive expertise in creative strategy and brand development. Her passion for impactful design shapes the unique solutions Swastika Advertising delivers.",
+      bio: "Mrs. Archita Duarah  brings extensive expertise in creative strategy and brand development. Her passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
       delay: 0.2
     },
   ];
@@ -66,7 +66,7 @@ export function Management() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Management</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Meet the experienced professionals behind Swastika Advertising's success and innovation.
+            Meet the experienced professionals behind Swastik Advertising's success and innovation.
           </p>
         </motion.div>
 

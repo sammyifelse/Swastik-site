@@ -40,7 +40,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Call Us</p>
-                  <p className="font-medium">10000000000</p>
+                  <p className="font-medium">+91 9101498279</p>
                 </div>
               </div>
               
@@ -50,7 +50,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Email Us</p>
-                  <p className="font-medium">info@swastika-advertising.com</p>
+                  <p className="font-medium">swastike945@gmail.com</p>
                 </div>
               </div>
               
@@ -60,7 +60,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Website</p>
-                  <p className="font-medium">www.swastika-advertising.com</p>
+                  <p className="font-medium">www.swastikadvertising.co.in</p>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Address</p>
-                  <p className="font-medium">123 Marketing Lane, Ad City, State, Country - 123456</p>
+                  <p className="font-medium"> Head office : Dakhin gaon, Sonaighuli Main lane,  Ghy - 781019</p>
                 </div>
               </div>
             </div>
@@ -135,9 +135,9 @@ export function Contact() {
               </motion.button>
               
               {/* Note about backend integration */}
-              <p className="text-xs text-muted-foreground mt-4">
+              {/* <p className="text-xs text-muted-foreground mt-4">
                 Note: This is a frontend demo. Backend integration would be required for actual message submission functionality.
-              </p>
+              </p> */}
             </form>
           </motion.div>
         </div>

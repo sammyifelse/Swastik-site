@@ -47,29 +47,34 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Miti Di Media Pvt. Lt. Ca",
+      title: "Miti Di Media", // Keeping the original first one as requested
       description: "Successfully delivered a comprehensive marketing campaign resulting in increased brand engagement and market reach for Miti Di Media.",
       delay: 0.1
     },
     {
-      title: "Project 2",
-      description: "Complete rebranding effort that transformed client perception and established a strong market presence with measurable ROI.",
+      title: "Brahmaputra Innovations",
+      description: "Developed a robust digital presence strategy and executed targeted regional campaigns, significantly boosting their market outreach in Assam.",
       delay: 0.2
     },
     {
-      title: "Project 3",
-      description: "Innovative social media strategy that increased client following by 200% and dramatically improved customer engagement metrics.",
+      title: "VentureSpark Solutions",
+      description: "Implemented a full-scale online marketing funnel, leading to a measurable increase in qualified lead generation and conversion rates for this dynamic startup.",
       delay: 0.3
     },
     {
-      title: "Project 4",
-      description: "City-wide outdoor advertising campaign that drove significant foot traffic and conversion for a major retail client.",
+      title: "Kaziranga Handlooms",
+      description: "Crafted a compelling brand story and launched focused social media campaigns, significantly enhancing their e-commerce sales and brand recognition for unique handicrafts.",
       delay: 0.4
     },
     {
-      title: "Project 5",
-      description: "End-to-end store branding solution that created a cohesive customer experience and reinforced brand identity at every touchpoint.",
+      title: "Apex Agri-Tech",
+      description: "Executed a comprehensive content marketing and SEO strategy, improving their online visibility and organic traffic for innovative agricultural solutions.",
       delay: 0.5
+    },
+    {
+      title: "NorthEast Connect Marketing",
+      description: "Designed and implemented a full suite of marketing collaterals and localized advertising for this regional agency, strengthening their brand's market position.",
+      delay: 0.6
     },
   ];
 
