@@ -15,7 +15,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-lg font-semibold mb-4">Swastika Advertising</h3>
+            <h3 className="text-lg font-semibold mb-4">Swastik Advertising</h3>
             <p className="text-muted-foreground mb-4 max-w-md">
               Creating impactful advertising solutions to help businesses grow and thrive in today's competitive marketplace.
             </p>
@@ -82,7 +82,7 @@ export function Footer() {
         
         <div className="mt-12 pt-8 border-t border-border">
           <p className="text-center text-muted-foreground text-sm">
-            &copy; {currentYear} Swastika Advertising Company. All rights reserved.
+            &copy; {currentYear} Swastik Advertising Company. All rights reserved.
           </p>
         </div>
       </div>

@@ -46,7 +46,7 @@ export function Navbar() {
             className="text-xl md:text-2xl font-bold"
           >
             <Link href="#hero" className="flex items-center gap-2">
-              <span className="text-primary">Swastika</span>
+              <span className="text-primary">Swastik</span>
               <span className="text-primary/80">Advertising</span>
             </Link>
           </motion.div>

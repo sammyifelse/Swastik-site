@@ -85,7 +85,7 @@ export function Hero() {
               <div className="bg-card rounded-xl overflow-hidden aspect-video relative">
                 <Image
                   src="/logo.png"
-                  alt="Swastika Advertising Logo"
+                  alt="Swastik  Advertising Logo"
                   fill
                   className="object-contain p-4"
                   priority

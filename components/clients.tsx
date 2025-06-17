@@ -94,7 +94,7 @@ export function Clients() {
           transition={{ delay: 0.6 }}
         >
           <p className="text-muted-foreground italic">
-            "Swastika Advertising helped us increase our brand visibility by 200% within just 3 months."
+            "Swastik Advertising helped us increase our brand visibility by 200% within just 3 months."
           </p>
           <p className="text-sm font-medium mt-2">— Marketing Director, BELVED</p>
         </motion.div>
