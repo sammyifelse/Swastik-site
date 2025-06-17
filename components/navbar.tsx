@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
+import Image from "next/image";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +47,13 @@ export function Navbar() {
             className="text-xl md:text-2xl font-bold"
           >
             <Link href="#hero" className="flex items-center gap-2">
+              <Image
+                src="/logo.png"
+                alt="Swastik Advertising Logo"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
               <span className="text-primary">Swastik</span>
               <span className="text-primary/80">Advertising</span>
             </Link>
@@ -78,12 +86,12 @@ export function Navbar() {
                 </Link>
               </motion.div>
             ))}
-            <ThemeToggle />
+            
           </nav>
 
           {/* Mobile Navigation Toggle */}
           <motion.div 
-            className="md:hidden flex items-center gap-4"
+            className="flex items-center gap-4"
             whileTap={{ scale: 0.95 }}
           >
             <ThemeToggle />

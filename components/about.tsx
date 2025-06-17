@@ -61,7 +61,7 @@ export function About() {
           
           <motion.div 
             variants={itemVariants}
-            className="mt-10 flex justify-center gap-4"
+            className="mt-10 flex flex-col md:flex-row justify-center gap-4 md:gap-8"
           >
             <motion.div 
               className="flex items-center gap-2 px-6 py-3 rounded-md bg-blue-50 dark:bg-blue-950"

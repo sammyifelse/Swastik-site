@@ -27,8 +27,8 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Hello, Welcome To The Age Of 
-              <span className="text-blue-500"> Connection!</span>
+              Hello, Welcome To  Swastik
+              {/* <span className="text-blue-500"> Connection!</span> */}
             </motion.h1>
             
             <motion.h2 
