@@ -2,13 +2,15 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import Image from 'next/image'; // Import Next.js Image component for optimized images
 
 interface ClientLogoProps {
   name: string;
   delay: number;
+  imageSrc?: string; // Add optional imageSrc prop
 }
 
-function ClientLogo({ name, delay }: ClientLogoProps) {
+function ClientLogo({ name, delay, imageSrc }: ClientLogoProps) {
   return (
     <motion.div
       className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm flex items-center justify-center h-32 relative overflow-hidden"
@@ -16,8 +18,8 @@ function ClientLogo({ name, delay }: ClientLogoProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay }}
-      whileHover={{ 
-        y: -10, 
+      whileHover={{
+        y: -10,
         rotate: 1,
         boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         transition: { duration: 0.3 }
@@ -25,10 +27,10 @@ function ClientLogo({ name, delay }: ClientLogoProps) {
     >
       {/* Add subtle animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-amber-50 dark:from-blue-900/20 dark:via-gray-800 dark:to-amber-900/20 opacity-50 animate-gradient"></div>
-      
+
       <motion.div
         className="relative z-10"
-        animate={{ 
+        animate={{
           scale: [1, 1.05, 1]
         }}
         transition={{
@@ -38,7 +40,21 @@ function ClientLogo({ name, delay }: ClientLogoProps) {
           delay: delay * 2,
         }}
       >
-        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{name}</h3>
+        {imageSrc ? (
+          // If imageSrc is provided, render the Next.js Image component
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={120} // Adjust width as needed for your logos
+            height={60} // Adjust height as needed for your logos
+            layout="intrinsic" // or "contain", "fill", "responsive" based on desired behavior
+            objectFit="contain" // Ensures the image fits within its container
+            className="max-h-full max-w-full" // Ensure image doesn't overflow
+          />
+        ) : (
+          // Otherwise, render the text name
+          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{name}</h3>
+        )}
       </motion.div>
     </motion.div>
   );
@@ -49,8 +65,8 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const clients = [
-    { name: "Topcem Cement", delay: 0.1 },
-    { name: "Barak Valley Cements ", delay: 0.15 },
+    { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" }, // Added imageSrc
+    { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" }, // Added imageSrc
     { name: "Kaziranga Automobiles", delay: 0.2 },
     { name: "Prag News", delay: 0.25 },
     { name: "NE Taxi", delay: 0.3 },
@@ -80,7 +96,7 @@ export function Clients() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         (prevIndex + 1) % testimonials.length
       );
     }, 6000); // Change testimonial every 6 seconds (adjust as needed)
@@ -91,7 +107,7 @@ export function Clients() {
   return (
     <section id="clients" className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           ref={ref}
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -110,14 +126,15 @@ export function Clients() {
               key={index}
               name={client.name}
               delay={client.delay}
+              imageSrc={client.imageSrc} // Pass the new imageSrc prop
             />
           ))}
         </div>
 
-        <div className="mt-12 text-center h-24 flex items-center justify-center"> {/* Added h-24 to maintain height */}
+        <div className="mt-12 text-center h-24 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentTestimonialIndex} // Key is crucial for AnimatePresence to detect changes
+              key={currentTestimonialIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

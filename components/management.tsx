@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"; // Import Image component
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
@@ -8,9 +9,10 @@ interface TeamMemberProps {
   title: string;
   bio: string;
   delay: number;
+  imageSrc: string; 
 }
 
-function TeamMember({ name, title, bio, delay }: TeamMemberProps) {
+function TeamMember({ name, title, bio, delay, imageSrc }: TeamMemberProps) {
   return (
     <motion.div
       className="flex flex-col items-center text-center"
@@ -20,13 +22,16 @@ function TeamMember({ name, title, bio, delay }: TeamMemberProps) {
       transition={{ duration: 0.6, delay }}
     >
       <motion.div 
-        className="w-40 h-40 rounded-full bg-muted/30 mb-6 overflow-hidden"
-        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+        className="w-40 h-40 rounded-full bg-muted/30 mb-6 overflow-hidden shadow-md"
+        whileHover={{ scale: 1.05, transition: { duration: 0.3 }, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }} // Added shadow and enhanced hover for 3D effect
       >
-        {/* Placeholder for team member photo */}
-        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-          <span className="text-5xl">👤</span>
-        </div>
+        <Image 
+          src={imageSrc} 
+          alt={name} 
+          width={160} // w-40 = 160px
+          height={160} // h-40 = 160px
+          className="object-cover w-full h-full rounded-full" // Ensure image fills circular container
+        />
       </motion.div>
       <h3 className="text-xl font-semibold mb-1">{name}</h3>
       <p className="text-blue-600 dark:text-blue-400 mb-3">{title}</p>
@@ -44,13 +49,15 @@ export function Management() {
       name: "Mr.Tridip Saikia",
       title: "Founder & CEO",
       bio: "Mr. Tridip Saikia is a visionary leader with 15 years of experience in the advertising industry. He is dedicated to driving innovation and client success at Swastik Advertising.",
-      delay: 0.1
+      delay: 0.1,
+      imageSrc: "/tridip.jpg" 
     },
     {
       name: "Mrs. Archita Duarah ",
       title: "Co-Founder & Creative Director",
       bio: "Mrs. Archita Duarah  brings extensive expertise in creative strategy and brand development. Her passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
-      delay: 0.2
+      delay: 0.2,
+      imageSrc: "/tridip.jpg" 
     },
   ];
 
@@ -78,6 +85,7 @@ export function Management() {
               title={member.title}
               bio={member.bio}
               delay={member.delay}
+              imageSrc={member.imageSrc}
             />
           ))}
         </div>

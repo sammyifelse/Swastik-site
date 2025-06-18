@@ -40,63 +40,67 @@ export function Navbar() {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <div className="container mx-auto px-4 md:px-6 py-4">
-        <div className="flex justify-between items-center">
+        {/* Using justify-between instead of gap-x for more direct control of spacing between two main groups */}
+        <div className="flex items-center justify-between"> {/* Changed to justify-between */}
           {/* Logo */}
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-xl md:text-2xl font-bold"
+            className="text-xl md:text-2xl font-bold flex items-center" // Ensure flex for image/text alignment
           >
-            <Link href="#hero" className="flex items-center gap-2">
+            <Link href="#hero" className="flex items-center gap-1"> {/* Reduced gap between image and text */}
               <Image
                 src="/logo.png"
                 alt="Swastik Advertising Logo"
-                width={32}
-                height={32}
+                width={28} // Decreased width of the logo image
+                height={28} // Decreased height of the logo image
                 className="object-contain"
               />
-              <span className="text-primary">Swastik</span>
-              <span className="text-primary/80">Advertising</span>
+              <span className="text-primary whitespace-nowrap">Swastik</span> {/* Added whitespace-nowrap */}
+              <span className="text-primary/80 whitespace-nowrap">Advertising</span> {/* Added whitespace-nowrap */}
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <motion.div
-                key={link.href}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link 
-                  href={link.href}
-                  className="text-sm font-medium hover:text-primary transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const elementId = link.href.replace('#', '');
-                    const element = document.getElementById(elementId);
-                    if (element) {
-                      window.scrollTo({
-                        top: element.getBoundingClientRect().top + window.scrollY - 100,
-                        behavior: "smooth"
-                      });
-                    }
-                  }}
+          {/* Desktop Navigation & Theme Toggle */}
+          {/* Combined nav and theme toggle into one flex container */}
+          <div className="flex items-center">
+            {/* Further decreased space-x to 2 for less space between nav items */}
+            <nav className="hidden md:flex items-center space-x-2"> {/* Changed from space-x-3 to space-x-2 */}
+              {navLinks.map((link) => (
+                <motion.div
+                  key={link.href}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-            
-          </nav>
+                  <Link
+                    href={link.href}
+                    className="text-base font-medium hover:text-primary transition-colors whitespace-nowrap px-2 py-1 rounded-md" // Added padding and rounded corners for better hit area and visual
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const elementId = link.href.replace('#', '');
+                      const element = document.getElementById(elementId);
+                      if (element) {
+                        window.scrollTo({
+                          top: element.getBoundingClientRect().top + window.scrollY - 100,
+                          behavior: "smooth"
+                        });
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
 
-          {/* Mobile Navigation Toggle */}
-          <motion.div 
-            className="flex items-center gap-4"
-            whileTap={{ scale: 0.95 }}
-          >
-            <ThemeToggle />
-            {/* Add mobile menu button here if needed */}
-          </motion.div>
+            {/* Theme Toggle (adjusted its position for better flow) */}
+            <motion.div
+              className="ml-4 flex items-center" // Added ml-4 to separate from nav links
+              whileTap={{ scale: 0.95 }}
+            >
+              <ThemeToggle />
+              {/* Add mobile menu button here if needed */}
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.header>

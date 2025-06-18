@@ -28,13 +28,13 @@ function ProjectCard({ title, description, delay }: ProjectCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white">
           <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-300 transition-colors duration-300">{title}</h3>
           <p className="text-sm text-gray-200 mb-4">{description}</p>
-          <motion.button
+          {/* <motion.button
             className="w-fit px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             View Case Study
-          </motion.button>
+          </motion.button> */}
         </div>
       </motion.div>
     </motion.div>
@@ -88,7 +88,7 @@ export function Projects() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Completed Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore some of our successful projects that have helped businesses achieve their marketing and advertising goals.
           </p>
