@@ -57,7 +57,7 @@ export function Management() {
       title: "Co-Founder & Creative Director",
       bio: "Mrs. Archita Duarah  brings extensive expertise in creative strategy and brand development. Her passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
       delay: 0.2,
-      imageSrc: "/tridip.jpg" 
+      imageSrc: "/Archita.jpg" 
     },
   ];
 
