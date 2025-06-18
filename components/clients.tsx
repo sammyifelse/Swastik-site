@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 interface ClientLogoProps {
   name: string;
@@ -59,7 +59,35 @@ export function Clients() {
     { name: "Nezone Tubes", delay: 0.45 },
     { name: "Kanha Group", delay: 0.5 },
     { name: "Assam Carbon Products", delay: 0.55 },
-];
+  ];
+
+  const testimonials = [
+    {
+      quote: "Swastik Advertising helped us increase our brand visibility by 200% within just 3 months.",
+      author: "Marketing Director, BELVED",
+    },
+    {
+      quote: "Our online engagement soared after collaborating with Swastik Advertising. Truly remarkable results!",
+      author: "CEO, Tech Solutions Inc.",
+    },
+    {
+      quote: "The team at Swastik Advertising delivered an outstanding campaign that exceeded all our expectations.",
+      author: "Founder, Creative Minds Co.",
+    },
+  ];
+
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prevIndex) => 
+        (prevIndex + 1) % testimonials.length
+      );
+    }, 6000); // Change testimonial every 6 seconds (adjust as needed)
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
     <section id="clients" className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">
@@ -86,18 +114,24 @@ export function Clients() {
           ))}
         </div>
 
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          <p className="text-muted-foreground italic">
-            "Swastik Advertising helped us increase our brand visibility by 200% within just 3 months."
-          </p>
-          <p className="text-sm font-medium mt-2">— Marketing Director, BELVED</p>
-        </motion.div>
+        <div className="mt-12 text-center h-24 flex items-center justify-center"> {/* Added h-24 to maintain height */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonialIndex} // Key is crucial for AnimatePresence to detect changes
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8 }}
+            >
+              <p className="text-muted-foreground italic">
+                "{testimonials[currentTestimonialIndex].quote}"
+              </p>
+              <p className="text-sm font-medium mt-2">
+                — {testimonials[currentTestimonialIndex].author}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
