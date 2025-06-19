@@ -106,6 +106,159 @@ export function About() {
               <span className="text-muted-foreground text-base">Projects</span> {/* Slightly larger text */}
             </motion.div>
           </motion.div>
+
+          {/* Photo Gallery */}
+          <motion.div variants={itemVariants} className="mt-12 w-full">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8">
+            Memorable Moments
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+              {/* Image 1 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/1.jpg"
+                  alt="Team and company culture event 1"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 2 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/2.jpg"
+                  alt="Team and company culture event 2"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 3 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/3.jpg"
+                  alt="Team and company culture event 3"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 4 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/4.jpg"
+                  alt="Team and company culture event 4"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 5 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/5.jpg"
+                  alt="Team and company culture event 5"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 6 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/6.jpg"
+                  alt="Team and company culture event 6"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 7 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/7.jpg"
+                  alt="Team and company culture event 7"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 8 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/8.jpg"
+                  alt="Team and company culture event 8"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 9 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/9.jpg"
+                  alt="Team and company culture event 9"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 10 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/10.jpg"
+                  alt="Team and company culture event 10"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 11 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/11.jpg"
+                  alt="Team and company culture event 11"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+              {/* Image 12 */}
+              <motion.div
+                className="overflow-hidden rounded-lg bg-card shadow-lg"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                variants={itemVariants}
+              >
+                <img
+                  src="/12.jpg"
+                  alt="Team and company culture event 12"
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
