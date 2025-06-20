@@ -65,8 +65,8 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const clients = [
-    { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" }, // Added imageSrc
-    { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" }, // Added imageSrc
+    { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" }, 
+    { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" }, 
     { name: "Kaziranga Automobiles", delay: 0.2 },
     { name: "Prag News", delay: 0.25 },
     { name: "NE Taxi", delay: 0.3 },

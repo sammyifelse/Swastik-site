@@ -102,13 +102,13 @@ export function Services() {
     {
       title: "Photography & Videography",
       description: "Capture your brand's essence with professional photography and videography services for marketing content and corporate needs.",
-      icon: "📸",
+      icon: "🎬",
       delay: 0.8
     },
     {
       title: "Camera Rental Service",
       description: "Access professional camera equipment for your projects with our flexible and affordable rental options.",
-      icon: "📷",
+      icon: "🤝",
       delay: 0.9
     },
     {
