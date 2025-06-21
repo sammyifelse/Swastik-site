@@ -67,14 +67,14 @@ export function Clients() {
   const clients = [
     { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" },
     { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" },
-    { name: "Kaziranga Automobiles", delay: 0.2 },
-    { name: "Prag News", delay: 0.25 },
-    { name: "NE Taxi", delay: 0.3 },
-    { name: "Akshar Foundation", delay: 0.35 },
-    { name: "Mohan Motors", delay: 0.4 },
-    { name: "Nezone Tubes", delay: 0.45 },
-    { name: "Kanha Group", delay: 0.5 },
-    { name: "Assam Carbon Products", delay: 0.55 },
+    { name: "Potential Concept & Educations", delay: 0.2,imageSrc: "/trus3.jpg"  },
+    { name: "P&C Academy", delay: 0.25,imageSrc:"/trus4.jpg" },
+    { name: "NE Taxi", delay: 0.3,imageSrc:"/trus5.jpg" },
+    { name: "Akshar Foundation", delay: 0.35,imageSrc:"/trust6.jpg"},
+    { name: "Mohan Motors", delay: 0.4,imageSrc:"/trust7.jpg" },
+    { name: "Nezone Tubes", delay: 0.45,imageSrc:"/trust8.jpg" },
+    { name: "Kanha Group", delay: 0.5,imageSrc:"/trust9.jpg" },
+    { name: "Assam Carbon Products", delay: 0.55,imageSrc:"/trust10.jpg" },
   ];
 
   const testimonials = [
