@@ -40,7 +40,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Call Us</p>
-                  <p className="font-medium">+91 9101498279</p>
+                  <p className="font-medium">+91 8751094364</p>
                 </div>
               </div>
               
