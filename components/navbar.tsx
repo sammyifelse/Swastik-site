@@ -47,12 +47,12 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="text-xl md:text-2xl font-bold flex items-center" // Ensure flex for image/text alignment
           >
-            <Link href="#hero" className="flex items-center gap-1"> {/* Reduced gap between image and text */}
+            <Link href="#hero" className="flex items-center gap-4"> {/* Increased gap between image and text */}
               <Image
                 src="/logo.png"
                 alt="Swastik Advertising Logo"
-                width={28} // Decreased width of the logo image
-                height={28} // Decreased height of the logo image
+                width={40} // Increased width of the logo image
+                height={40} // Increased height of the logo image
                 className="object-contain"
               />
               <span className="text-primary whitespace-nowrap">Swastik</span> {/* Added whitespace-nowrap */}
@@ -64,7 +64,7 @@ export function Navbar() {
           {/* Combined nav and theme toggle into one flex container */}
           <div className="flex items-center">
             {/* Further decreased space-x to 2 for less space between nav items */}
-            <nav className="hidden md:flex items-center space-x-2"> {/* Changed from space-x-3 to space-x-2 */}
+            <nav className="hidden md:flex items-center space-x-2 ml-auto"> {/* Changed from space-x-3 to space-x-2 and added ml-auto */}
               {navLinks.map((link) => (
                 <motion.div
                   key={link.href}

@@ -50,7 +50,7 @@ export function Management() {
       title: "Founder & CEO",
       bio: "Mr. Tridip Saikia is a visionary leader with 15 years of experience in the advertising industry. He is dedicated to driving innovation and client success at Swastik Advertising.",
       delay: 0.1,
-      imageSrc: "/tridip.jpg" 
+      imageSrc: "/tridip1.jpg" 
     },
     {
       name: "Mrs. Archita Duarah ",

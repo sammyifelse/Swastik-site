@@ -65,8 +65,8 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const clients = [
-    { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" }, 
-    { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" }, 
+    { name: "South Indian Bank", delay: 0.1, imageSrc: "/south.jpg" },
+    { name: "Assam State Rural Livelihood ", delay: 0.15, imageSrc: "/Assam.jpg" },
     { name: "Kaziranga Automobiles", delay: 0.2 },
     { name: "Prag News", delay: 0.25 },
     { name: "NE Taxi", delay: 0.3 },
@@ -131,6 +131,7 @@ export function Clients() {
           ))}
         </div>
 
+        {/* Increased testimonial text size */}
         <div className="mt-12 text-center h-24 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -140,10 +141,10 @@ export function Clients() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-muted-foreground italic">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-muted-foreground italic max-w-3xl mx-auto">
                 "{testimonials[currentTestimonialIndex].quote}"
               </p>
-              <p className="text-sm font-medium mt-2">
+              <p className="text-base md:text-lg font-medium mt-3"> {/* Increased author size and margin */}
                 — {testimonials[currentTestimonialIndex].author}
               </p>
             </motion.div>
