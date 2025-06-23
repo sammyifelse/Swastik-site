@@ -57,7 +57,7 @@ export function Management() {
       title: "Creative Director",
       bio: "I bring extensive expertise in creative strategy and brand development. My passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
       delay: 0.2,
-      imageSrc: "/Archita.jpg" 
+      imageSrc: "/Archita1.png" 
     },
   ];
 

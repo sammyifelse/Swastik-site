@@ -96,65 +96,69 @@ export function Hero() {
                   }
                 }}
               >
-                Learn More 
+                Learn More
               </a>
             </motion.div>
 
-            {/* New section for three image boxes */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"> {/* Added sm:grid-cols-2 for better small screen layout, increased gap */}
-              {/* Image Box 1 */}
-              <motion.div
-                className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center"> {/* Adjusted height */}
-                  <Image
-                    src="/tridip1.jpg" // IMPORTANT: Replace with your actual image path (e.g., /images/event1.jpg)
-                    alt="Event Image 1"
-                    fill
-                    className="object-cover" // Changed to object-cover to ensure images fill the box
-                  />
-                </div>
-              </motion.div>
+            {/* New section for three image boxes - Centered and Wider */}
+            {/* This outer div uses flex to center its content horizontally */}
+            <div className="mt-12 flex justify-center">
+              {/* The grid inside takes full width but is limited by max-w-6xl for wider appearance */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
+                {/* Image Box 1 */}
+                <motion.div
+                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.0 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
+                    <Image
+                      src="/tridip1.jpg" // IMPORTANT: Replace with your actual image path (e.g., /images/event1.jpg)
+                      alt="Event Image 1"
+                      fill
+                      className="object-cover" // Changed to object-cover to ensure images fill the box
+                    />
+                  </div>
+                </motion.div>
 
-              {/* Image Box 2 */}
-              <motion.div
-                className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
-                  <Image
-                    src="/Archita.jpg" // IMPORTANT: Replace with your actual image path
-                    alt="Event Image 2"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
+                {/* Image Box 2 */}
+                <motion.div
+                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
+                    <Image
+                      src="/Archita1.png" // IMPORTANT: Replace with your actual image path
+                      alt="Event Image 2"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </motion.div>
 
-              {/* Image Box 3 */}
-              <motion.div
-                className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.4 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
-                  <Image
-                    src="/3.jpg" // IMPORTANT: Replace with your actual image path
-                    alt="Event Image 3"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
+                {/* Image Box 3 */}
+                <motion.div
+                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.4 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
+                    <Image
+                      src="/3.jpg" // IMPORTANT: Replace with your actual image path
+                      alt="Event Image 3"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

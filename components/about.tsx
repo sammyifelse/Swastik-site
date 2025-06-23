@@ -132,7 +132,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/2.jpg"
+                  src="/3.jpg"
                   alt="Team and company culture event 2"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -144,7 +144,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/3.jpg"
+                  src="/4.jpg"
                   alt="Team and company culture event 3"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -156,7 +156,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/4.jpg"
+                  src="/10.jpg"
                   alt="Team and company culture event 4"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -180,7 +180,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/6.jpg"
+                  src="/9.jpg"
                   alt="Team and company culture event 6"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -204,7 +204,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/8.jpg"
+                  src="/12.jpg"
                   alt="Team and company culture event 8"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -216,7 +216,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/9.jpg"
+                  src="/2.jpg"
                   alt="Team and company culture event 9"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -228,7 +228,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/10.jpg"
+                  src="/8.jpg"
                   alt="Team and company culture event 10"
                   className="w-full h-full object-cover aspect-square"
                 />
@@ -252,7 +252,7 @@ export function About() {
                 variants={itemVariants}
               >
                 <img
-                  src="/12.jpg"
+                  src="/6.jpg"
                   alt="Team and company culture event 12"
                   className="w-full h-full object-cover aspect-square"
                 />
