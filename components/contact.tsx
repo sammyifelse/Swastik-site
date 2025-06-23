@@ -1,5 +1,4 @@
 "use client";
-
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone, Globe, MapPin } from "lucide-react";

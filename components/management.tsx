@@ -47,15 +47,15 @@ export function Management() {
   const team = [
     {
       name: "Mr.Tridip Saikia",
-      title: "Founder & CEO",
-      bio: "Mr. Tridip Saikia is a visionary leader with 15 years of experience in the advertising industry. He is dedicated to driving innovation and client success at Swastik Advertising.",
+      title: "Managing Director",
+      bio: " I am a young enterpreneur and a visionery known for my dynamism and enterpreneural skills.If you choose me as your working partner, I promise you will get excellent service, expertise, hard work,responsiveness",
       delay: 0.1,
       imageSrc: "/tridip1.jpg" 
     },
     {
       name: "Mrs. Archita Duarah ",
-      title: "Co-Founder & Creative Director",
-      bio: "Mrs. Archita Duarah  brings extensive expertise in creative strategy and brand development. Her passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
+      title: "Creative Director",
+      bio: "I bring extensive expertise in creative strategy and brand development. My passion for impactful design shapes the unique solutions Swastik Advertising delivers.",
       delay: 0.2,
       imageSrc: "/Archita.jpg" 
     },
@@ -71,7 +71,7 @@ export function Management() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Management</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Management</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Meet the experienced professionals behind Swastik Advertising's success and innovation.
           </p>

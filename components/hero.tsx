@@ -63,7 +63,7 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Who We Are About Swastik Advertising
+              Why Choose Us?
             </motion.h2>
 
             <motion.p
