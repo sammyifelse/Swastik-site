@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresence
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react"; // Import useState
 
 export function About() {
   const ref = useRef(null);
@@ -27,6 +27,41 @@ export function About() {
     }
   };
 
+  // --- Carousel State and Logic ---
+  const images = [
+    { src: "/1.jpg", alt: "Team and company culture event 1" },
+    { src: "/3.jpg", alt: "Team and company culture event 2" },
+    { src: "/4.jpg", alt: "Team and company culture event 3" },
+    { src: "/10.jpg", alt: "Team and company culture event 4" },
+    { src: "/5.jpg", alt: "Team and company culture event 5" },
+    { src: "/9.jpg", alt: "Team and company culture event 6" },
+    // { src: "/7.jpg", alt: "Team and company culture event 7" },
+    // { src: "/12.jpg", alt: "Team and company culture event 8" },
+    // { src: "/2.jpg", alt: "Team and company culture event 9" },
+    // { src: "/8.jpg", alt: "Team and company culture event 10" },
+    // { src: "/11.jpg", alt: "Team and company culture event 11" },
+    // { src: "/6.jpg", alt: "Team and company culture event 12" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // 0: no change, 1: next, -1: prev
+
+  const goToNext = () => {
+    setDirection(1);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPrevious = () => {
+    setDirection(-1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
+  };
+  // --- End Carousel State and Logic ---
+
   return (
     <section id="about" className="py-20 bg-muted/20">
       <div className="container mx-auto px-4">
@@ -35,12 +70,13 @@ export function About() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="max-w-4xl mx-auto text-center">
+          className="max-w-4xl mx-auto text-center"
+        >
           <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-6">
             Who We Are
           </motion.h2>
           
-          {/* Our Vision, Our Mission, Our Values Boxes */}
+          {/* Our Vision, Our Mission, Our Values Boxes (unchanged) */}
           <motion.div
             variants={itemVariants}
             className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -76,7 +112,7 @@ export function About() {
             </motion.div>
           </motion.div>
 
-          {/* Moved: 10+ Years Experience, 100+ Happy Clients, 500+ Projects Boxes */}
+          {/* 10+ Years Experience, 100+ Happy Clients, 500+ Projects Boxes (unchanged) */}
           <motion.div
             variants={itemVariants}
             className="mt-10 flex flex-col md:flex-row justify-center gap-4 md:gap-8"
@@ -107,156 +143,55 @@ export function About() {
             </motion.div>
           </motion.div>
 
-          {/* Photo Gallery */}
+          {/* Photo Gallery - NOW A CAROUSEL */}
           <motion.div variants={itemVariants} className="mt-12 w-full">
             <h3 className="text-2xl md:text-3xl font-bold mb-8">
-            Memorable Moments
+              Memorable Moments
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {/* Image 1 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/1.jpg"
-                  alt="Team and company culture event 1"
-                  className="w-full h-full object-cover aspect-square"
+            <div className="relative overflow-hidden rounded-lg shadow-lg aspect-video"> {/* Added aspect-video for consistent height */}
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.img
+                  key={currentIndex} // Key changes to re-trigger animation
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
+                  className="absolute inset-0 w-full h-full object-cover" // Image covers the container
+                  initial={{ opacity: 0, x: direction === 1 ? '100%' : direction === -1 ? '-100%' : 0 }}
+                  animate={{ opacity: 1, x: '0%' }}
+                  exit={{ opacity: 0, x: direction === 1 ? '-100%' : '100%' }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  custom={direction}
                 />
-              </motion.div>
-              {/* Image 2 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
+              </AnimatePresence>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={goToPrevious}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full z-10 hover:bg-opacity-75 transition-colors"
+                aria-label="Previous image"
               >
-                <img
-                  src="/3.jpg"
-                  alt="Team and company culture event 2"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 3 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
+                &larr;
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full z-10 hover:bg-opacity-75 transition-colors"
+                aria-label="Next image"
               >
-                <img
-                  src="/4.jpg"
-                  alt="Team and company culture event 3"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 4 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/10.jpg"
-                  alt="Team and company culture event 4"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 5 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/5.jpg"
-                  alt="Team and company culture event 5"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 6 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/9.jpg"
-                  alt="Team and company culture event 6"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 7 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/7.jpg"
-                  alt="Team and company culture event 7"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 8 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/12.jpg"
-                  alt="Team and company culture event 8"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 9 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/2.jpg"
-                  alt="Team and company culture event 9"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 10 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/8.jpg"
-                  alt="Team and company culture event 10"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 11 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/11.jpg"
-                  alt="Team and company culture event 11"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
-              {/* Image 12 */}
-              <motion.div
-                className="overflow-hidden rounded-lg bg-card shadow-lg"
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                variants={itemVariants}
-              >
-                <img
-                  src="/6.jpg"
-                  alt="Team and company culture event 12"
-                  className="w-full h-full object-cover aspect-square"
-                />
-              </motion.div>
+                &rarr;
+              </button>
+
+              {/* Navigation Dots */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentIndex ? 'bg-blue-500' : 'bg-gray-400 hover:bg-gray-300'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  ></button>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
