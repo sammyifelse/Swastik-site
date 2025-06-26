@@ -18,55 +18,38 @@ function ServiceCard({ title, description, icon, delay }: ServiceCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, delay: delay }}
-      whileHover={{
-        y: -5,
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-        borderColor: "#3b82f6", // Blue-500
-        zIndex: 10,
-        transition: { duration: 0.3 }
-      }}
+      // Removed whileHover from the main card to emphasize the icon-title box lift
+      // If you still want the main card to lift/change on hover, you can add it back here,
+      // e.g., whileHover={{ y: -5, boxShadow: "...", borderColor: "..." }}
     >
-      {/* NEW: Wrapper for Icon and Title Box to place them on the same line */}
-      <div className="flex items-center gap-4 mb-4"> {/* Added gap for spacing */}
-        <motion.div 
-          className="flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300" // Decreased size for icon container
-          animate={{ 
-            rotate: [0, 5, 0, -5, 0]
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 5,
-            delay: delay * 2,
-          }}
-        >
-          <span className="text-2xl">{icon}</span> {/* Decreased icon size */}
-        </motion.div>
-
-        {/* NEW: Service Title inside a box with new color and smaller size */}
-        <motion.div
-          className="
-            flex items-center justify-center
-            px-4 py-2 // Decreased padding for smaller box
-            rounded-md
-            bg-blue-700 // Changed background color to a pleasing dark blue
-            min-w-fit
-            text-center // Ensure text is centered within its box
-          "
-          whileHover={{ y: -5 }} // Hover lift for the title box
-        >
-          <h3 className="text-md font-semibold text-white"> {/* Adjusted text size */}
-            {title}
-          </h3>
-        </motion.div>
-      </div>
-      {/* END NEW: Icon and Title Box wrapper */}
+      {/* THIS IS THE UPDATED SECTION: Combined Icon and Title Box */}
+      <motion.div
+        className="
+          flex items-center // Align icon and text horizontally
+          gap-3 // Space between icon and text
+          px-4 py-2 // Padding for the box
+          rounded-md // Rounded corners
+          bg-blue-700 // The chosen blue background
+          min-w-fit // Fit content width
+          mx-auto // Center the box horizontally within the card
+          mb-4 // Margin below this combined box
+        "
+        whileHover={{ y: -5 }} // The desired hover lift for the combined box
+      >
+        <span className="text-xl text-white"> {/* Icon size and color within the box */}
+          {icon}
+        </span>
+        <h3 className="text-md font-semibold text-white"> {/* Title text size and color */}
+          {title}
+        </h3>
+      </motion.div>
+      {/* END OF UPDATED SECTION */}
 
       {/* Description and Underline now align to the start, below the icon/title line */}
       <p className="text-muted-foreground text-left mb-4">{description}</p> 
 
       <motion.div 
-        className="w-12 h-1 bg-blue-500 rounded" // Removed mx-auto, aligned left
+        className="w-12 h-1 bg-blue-500 rounded" // Aligned left
         initial={{ width: 0 }}
         whileInView={{ width: 48 }}
         viewport={{ once: true }}
