@@ -59,55 +59,55 @@ export function Services() {
   const services = [
     {
       title: "Printing & Designing",
-      description: "Elevate your brand's image with our comprehensive printing and design services. From brochures to stationary, we create visually stunning and impactful materials.",
+      description: "Transform your brand with premium printing and design that leaves a lasting impression.",
       icon: "🖨️",
       delay: 0.3
     },
     {
       title: "Outdoor Advertising",
-      description: "Maximize your brand's visibility with impactful outdoor advertising, including signage and hoardings. From design to installation, we ensure your message stands out.",
+      description: "Boost your brand's visibility with bold, eye-catching outdoor advertising solutions from design to installation",
       icon: "🏙️",
       delay: 0.4
     },
     {
       title: "Digital Marketing",
-      description: "We provide comprehensive digital marketing strategies tailored to connect your brand with its target audience. Our focus is on data-driven campaigns that yield measurable results.",
+      description: "Smart marketing. Stronger impact.",
       icon: "📈",
       delay: 0.1
     },
     {
       title: "Profile Branding",
-      description: "Develop a compelling personal or corporate brand profile that resonates with your audience and stands out in the market.",
+      description: "Craft a powerful brand story that captivates, connects, and sets you apart.",
       icon: "👤",
       delay: 1.0
     },
     {
       title: "Photography & Videography",
-      description: "Capture your brand's essence with professional photography and videography services for marketing content and corporate needs.",
+      description: "Show your brand's story through powerful photos and videos.",
       icon: "🎬",
       delay: 0.8
     },
     {
       title: "Content Writing",
-      description: "Engage your audience with compelling and SEO-friendly content, including articles, blogs, website copy, and marketing materials.",
+      description: "Powerful words. Real results. ",
       icon: "✍️",
       delay: 1.2
     },
     {
       title: "Digital Classroom",
-      description: "design and deliver interactive digital classes that engage your students and enhance their learning experience.",
+      description: "Learn better with interactive digital teaching.",
       icon: "🎓",
       delay: 0.1
     },
     {
       title: "Audio Video Advertising",
-      description: "Create captivating audio and video content for your marketing campaigns, including promotional videos and advertisements.",
+      description: "Catch attention with stunning promo videos and ads.",
       icon: "📹",
       delay: 0.7
     },
     {
       title: "Camera Rentals",
-      description: "Access professional camera equipment for your projects with our flexible and affordable rental options.",
+      description: "Rent pro camera gear, shoot like a pro.",
       icon: "🤝",
       delay: 0.9
     },
