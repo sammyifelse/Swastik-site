@@ -17,7 +17,7 @@ export function Footer() {
           >
             <h3 className="text-lg font-semibold mb-4">Swastik Advertising</h3>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Creating impactful advertising solutions to help businesses grow and thrive in today's competitive marketplace.
+              Creating impactful advertising solutions to help businesses grow and thrive in today&apos;s competitive marketplace.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">

@@ -48,7 +48,7 @@ export function Management() {
     {
       name: "Mr.Tridip Saikia",
       title: "Managing Director",
-      bio: " I am a young enterpreneur and a visionery known for my dynamism and enterpreneural skills.If you choose me as your working partner, I promise you will get excellent service, expertise, hard work,responsiveness",
+      bio: " I am a young enterpreneur and a visionery known for my dynamism and enterpreneural skills. If you choose me as your working partner, I promise you will get excellent service, expertise, hard work, responsiveness",
       delay: 0.1,
       imageSrc: "/tridip1.jpg" 
     },
@@ -73,7 +73,7 @@ export function Management() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Management</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Meet the experienced professionals behind Swastik Advertising's success and innovation.
+            Meet the experienced professionals behind Swastik Advertising&apos;s success and innovation.
           </p>
         </motion.div>
 

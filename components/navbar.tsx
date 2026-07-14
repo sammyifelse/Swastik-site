@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ThemeToggle } from "./theme-toggle";
 import Image from "next/image";
+import { Clock3, Mail, Phone } from "lucide-react";
+import finalLogo from "../logo final.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,72 +35,88 @@ export function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-[0_10px_40px_rgba(15,23,42,0.08)]" : "bg-white"}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
-      <div className="container mx-auto px-4 md:px-6 py-4">
-        {/* Using justify-between instead of gap-x for more direct control of spacing between two main groups */}
-        <div className="flex items-center justify-between"> {/* Changed to justify-between */}
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-xl md:text-2xl font-bold flex items-center" // Ensure flex for image/text alignment
-          >
-            <Link href="#hero" className="flex items-center gap-4"> {/* Increased gap between image and text */}
+      <div className="border-b border-[#e7e0d7] bg-[#fffaf3]">
+        <div className="container mx-auto px-4 md:px-6 py-2 md:py-3">
+          <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+            <Link href="#hero" className="flex items-center gap-4">
               <Image
-                src="/logo.png"
+                src={finalLogo}
                 alt="Swastik Advertising Logo"
-                width={40} // Increased width of the logo image
-                height={40} // Increased height of the logo image
-                className="object-contain"
+                className="h-auto w-[120px] md:w-[150px] object-contain"
+                style={{ mixBlendMode: 'screen', filter: 'brightness(1.05) contrast(1.03)' }}
+                priority
               />
-              <span className="text-primary whitespace-nowrap">Swastik</span> {/* Added whitespace-nowrap */}
-              <span className="text-primary/80 whitespace-nowrap">Advertising</span> {/* Added whitespace-nowrap */}
             </Link>
-          </motion.div>
 
-          {/* Desktop Navigation & Theme Toggle */}
-          {/* Combined nav and theme toggle into one flex container */}
-          <div className="flex items-center">
-            {/* Further decreased space-x to 2 for less space between nav items */}
-            <nav className="hidden md:flex items-center space-x-2 ml-auto"> {/* Changed from space-x-3 to space-x-2 and added ml-auto */}
-              {navLinks.map((link) => (
-                <motion.div
-                  key={link.href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+            <div className="grid gap-3 sm:grid-cols-3 xl:flex xl:items-center xl:justify-end">
+              <div className="flex items-center gap-3 xl:gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f7b84b] text-white shadow-sm">
+                  <Clock3 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-base font-medium text-slate-900">Opening Time</p>
+                  <p className="text-sm text-slate-600">Mon-Sat: 10.00-18.30</p>
+                </div>
+              </div>
+
+              <a href="mailto:delta_publicity12@rediffmail.com" className="flex items-center gap-3 xl:gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#7b8c6b] text-white shadow-sm">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-base font-medium text-slate-900">Email Address</p>
+                  <p className="text-sm text-slate-600">swastike945@gmail.com</p>
+                </div>
+              </a>
+
+              <a href="tel:+916900110239" className="flex items-center gap-3 xl:gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#568ea3] text-white shadow-sm">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-base font-medium text-slate-900">Phone</p>
+                  <p className="text-sm text-slate-600">+91 8751094364</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#2f2d2b]">
+        <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+          <nav className="hidden items-stretch gap-0 lg:flex">
+            {navLinks.map((link) => (
+              <motion.div key={link.href} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href={link.href}
+                  className={`relative flex items-center px-6 py-6 text-sm font-semibold uppercase tracking-wide transition ${link.href === "#hero" ? "bg-[#f7b84b] text-[#1f2328]" : "text-white hover:bg-white/10"}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const elementId = link.href.replace('#', '');
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                      window.scrollTo({
+                        top: element.getBoundingClientRect().top + window.scrollY - 110,
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
                 >
-                  <Link
-                    href={link.href}
-                    className="text-base font-medium hover:text-primary transition-colors whitespace-nowrap px-2 py-1 rounded-md" // Added padding and rounded corners for better hit area and visual
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const elementId = link.href.replace('#', '');
-                      const element = document.getElementById(elementId);
-                      if (element) {
-                        window.scrollTo({
-                          top: element.getBoundingClientRect().top + window.scrollY - 100,
-                          behavior: "smooth"
-                        });
-                      }
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
+                  {link.label}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
 
-            {/* Theme Toggle (adjusted its position for better flow) */}
-            <motion.div
-              className="ml-4 flex items-center" // Added ml-4 to separate from nav links
-              whileTap={{ scale: 0.95 }}
-            >
-              <ThemeToggle />
-              {/* Add mobile menu button here if needed */}
-            </motion.div>
+          <div className="flex w-full items-center justify-between py-4 lg:hidden">
+            <span className="text-sm font-semibold uppercase tracking-wide text-white">Menu</span>
+            <span className="text-xs text-white/70">Home / About / Services / Contact</span>
           </div>
         </div>
       </div>

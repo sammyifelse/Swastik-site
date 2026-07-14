@@ -142,7 +142,7 @@ export function Clients() {
               transition={{ duration: 0.8 }}
             >
               <p className="text-lg md:text-xl lg:text-2xl font-semibold text-muted-foreground italic max-w-3xl mx-auto">
-                "{testimonials[currentTestimonialIndex].quote}"
+                &quot;{testimonials[currentTestimonialIndex].quote}&quot;
               </p>
               <p className="text-base md:text-lg font-medium mt-3"> {/* Increased author size and margin */}
                 — {testimonials[currentTestimonialIndex].author}

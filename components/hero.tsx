@@ -1,167 +1,107 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import finalLogo from "../Logo final.png";
 
 export function Hero() {
+  const phrases = ["Brand Identity", "Campaigns", "Outdoor Advertising", "Business Growth"];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    const typingDelay = isDeleting ? 45 : 85;
+
+    const timeout = window.setTimeout(() => {
+      if (!isDeleting) {
+        const nextText = currentPhrase.slice(0, typedText.length + 1);
+        setTypedText(nextText);
+
+        if (nextText === currentPhrase) {
+          window.setTimeout(() => setIsDeleting(true), 1200);
+        }
+      } else {
+        const nextText = currentPhrase.slice(0, typedText.length - 1);
+        setTypedText(nextText);
+
+        if (nextText.length === 0) {
+          setIsDeleting(false);
+          setPhraseIndex((current) => (current + 1) % phrases.length);
+        }
+      }
+    }, typingDelay);
+
+    return () => window.clearTimeout(timeout);
+  }, [typedText, isDeleting, phraseIndex, phrases]);
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0 opacity-10 dark:opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-amber-300 rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl"></div>
+    <section id="hero" className="relative min-h-[82vh] overflow-hidden pt-[170px]">
+      <div className="absolute inset-0 -z-20">
+        <Image src="/2.jpg" alt="Advertising background" fill className="object-cover object-center" priority />
       </div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_left,rgba(255,248,236,0.82)_0%,rgba(255,248,236,0.58)_42%,rgba(242,247,252,0.82)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#fff8ee]/90 via-[#fff8ee]/65 to-[#eef5fb]/35" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_100%)]" />
 
-      <div className="container mx-auto px-4 pt-12 relative z-10">
-        {/*
-          Changed md:flex-row-reverse to keep the logo on the left (as per your site image)
-          Changed items-center to md:items-start to align content to the top on medium+ screens.
-        */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
-          {/* Logo/Image Column (Left Side) */}
-          <motion.div
-            // Increased max-width for larger image. Adjust these values as needed.
-            className="flex-1 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
-            initial={{ opacity: 0, x: -20 }} // Changed x to -20 since it's now on the left
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1">
-              <div className="bg-card rounded-xl overflow-hidden aspect-video relative">
-                <Image
-                  src="/logo.png" // Ensure this path is correct for your main logo
-                  alt="Swastik Advertising Logo"
-                  fill
-                  className="object-contain p-4" // Keep padding for internal spacing
-                  priority
-                />
-              </div>
-            </div>
-          </motion.div>
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl py-10 md:py-16"
+        >
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-sm">
+            <Image src={finalLogo} alt="Swastik Advertising Logo" className="h-7 w-auto object-contain" />
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-700">Swastik Advertising</span>
+          </div>
 
-          {/* Text Content Column (Right Side) */}
-          <motion.div
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              // Increased text size and bottom margin
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 md:mb-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+          <h1 className="mt-8 max-w-4xl text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-slate-900 sm:text-6xl lg:text-8xl">
+            We create
+            <span className="mt-3 block text-[#7b8c6b]" aria-live="polite">
+              {typedText}
+              <span className="ml-1 inline-block w-[2px] h-6 align-middle bg-current animate-pulse" />
+            </span>
+            <span className="mt-3 block">for your next business</span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base font-medium uppercase tracking-[0.16em] text-slate-700 sm:text-lg">
+            Outdoor advertising, branding, and visual communication with a clean premium look.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("projects");
+                if (element) {
+                  window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-none bg-[#f7b84b] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#1f2328] transition hover:bg-[#efab36]"
             >
-              Welcome To Swastik Advertising
-            </motion.h1>
-
-            <motion.h2
-              className="text-xl md:text-2xl font-medium text-muted-foreground mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              View Portfolio
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("contact");
+                if (element) {
+                  window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center justify-center rounded-none border border-slate-300 bg-white/65 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-800 backdrop-blur-sm transition hover:bg-white"
             >
-              Why Choose Us?
-            </motion.h2>
-
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl md:mx-0 mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              Creativity sparks ideas, but it's relentless action that brings brands to life.
-            </motion.p>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-            >
-              <a
-                href="#about"
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector('#about');
-                  if (element) {
-                    window.scrollTo({
-                      top: element.getBoundingClientRect().top + window.scrollY - 100,
-                      behavior: "smooth"
-                    });
-                  }
-                }}
-              >
-                Learn More
-              </a>
-            </motion.div>
-
-            {/* New section for three image boxes - Centered and Wider */}
-            {/* This outer div uses flex to center its content horizontally */}
-            <div className="mt-12 flex justify-center">
-              {/* The grid inside takes full width but is limited by max-w-6xl for wider appearance */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
-                {/* Image Box 1 */}
-                <motion.div
-                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
-                    <Image
-                      src="/tridip1.jpg" // IMPORTANT: Replace with your actual image path (e.g., /images/event1.jpg)
-                      alt="Event Image 1"
-                      fill
-                      className="object-cover" // Changed to object-cover to ensure images fill the box
-                    />
-                  </div>
-                </motion.div>
-
-                {/* Image Box 2 */}
-                <motion.div
-                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
-                    <Image
-                      src="/Archita1.png" // IMPORTANT: Replace with your actual image path
-                      alt="Event Image 2"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </motion.div>
-
-                {/* Image Box 3 */}
-                <motion.div
-                  className="rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 p-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.4 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="bg-card rounded-xl overflow-hidden relative h-40 md:h-48 flex items-center justify-center">
-                    <Image
-                      src="/3.jpg" // IMPORTANT: Replace with your actual image path
-                      alt="Event Image 3"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+              Contact Us
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
