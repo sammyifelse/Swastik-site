@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import Image from 'next/image'; // Import Next.js Image component for optimized images
+import Image from "next/image";
 
 interface ClientLogoProps {
   name: string;
@@ -13,7 +13,7 @@ interface ClientLogoProps {
 function ClientLogo({ name, delay, imageSrc }: ClientLogoProps) {
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm flex items-center justify-center h-32 relative overflow-hidden"
+      className="group relative flex h-32 items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_30px_rgba(0,0,0,0.22)] backdrop-blur-sm"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -21,12 +21,12 @@ function ClientLogo({ name, delay, imageSrc }: ClientLogoProps) {
       whileHover={{
         y: -10,
         rotate: 1,
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        boxShadow: "0 0 30px rgba(125, 255, 79, 0.18)",
         transition: { duration: 0.3 }
       }}
     >
-      {/* Add subtle animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-amber-50 dark:from-blue-900/20 dark:via-gray-800 dark:to-amber-900/20 opacity-50 animate-gradient"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(125,255,79,0.16)_0%,rgba(125,255,79,0)_55%)] opacity-70" />
+      <div className="absolute inset-0 border border-[#7dff4f]/10" />
 
       <motion.div
         className="relative z-10"
@@ -41,19 +41,15 @@ function ClientLogo({ name, delay, imageSrc }: ClientLogoProps) {
         }}
       >
         {imageSrc ? (
-          // If imageSrc is provided, render the Next.js Image component
           <Image
             src={imageSrc}
             alt={name}
-            width={120} // Adjust width as needed for your logos
-            height={60} // Adjust height as needed for your logos
-            layout="intrinsic" // or "contain", "fill", "responsive" based on desired behavior
-            objectFit="contain" // Ensures the image fits within its container
-            className="max-h-full max-w-full" // Ensure image doesn't overflow
+            width={120}
+            height={60}
+            className="max-h-full max-w-full object-contain brightness-105 contrast-110"
           />
         ) : (
-          // Otherwise, render the text name
-          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{name}</h3>
+          <h3 className="text-xl font-bold text-white">{name}</h3>
         )}
       </motion.div>
     </motion.div>
@@ -105,7 +101,7 @@ export function Clients() {
   }, [testimonials.length]);
 
   return (
-    <section id="clients" className="py-20 bg-muted/20">
+    <section id="clients" className="py-20 bg-[#070707] text-white">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -114,8 +110,8 @@ export function Clients() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">We are Trusted By</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="mt-3 text-3xl md:text-4xl font-black uppercase mb-4">We are trusted by</h2>
+          <p className="text-white/70 max-w-2xl mx-auto">
             These industry leaders have trusted us with their advertising and marketing needs.
           </p>
         </motion.div>
@@ -131,7 +127,6 @@ export function Clients() {
           ))}
         </div>
 
-        {/* Increased testimonial text size */}
         <div className="mt-12 text-center h-24 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -141,10 +136,10 @@ export function Clients() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-muted-foreground italic max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-white/80 italic max-w-3xl mx-auto">
                 &quot;{testimonials[currentTestimonialIndex].quote}&quot;
               </p>
-              <p className="text-base md:text-lg font-medium mt-3"> {/* Increased author size and margin */}
+              <p className="text-base md:text-lg font-medium mt-3 text-[#7dff4f]">
                 — {testimonials[currentTestimonialIndex].author}
               </p>
             </motion.div>
