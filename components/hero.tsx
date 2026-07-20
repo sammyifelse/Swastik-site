@@ -51,7 +51,7 @@ export function Hero() {
             className="space-y-6"
           >
             <div className="text-center lg:text-left">
-              <h1 className="text-[clamp(3rem,5vw,6.5rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] whitespace-normal lg:whitespace-nowrap">
+              <h1 className="text-[clamp(2.5rem,4.2vw,5.4rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] whitespace-normal lg:whitespace-nowrap">
                 <span className="text-[#7dff4f] drop-shadow-[0_0_24px_rgba(125,255,79,0.35)]">We</span>{" "}
                 <span className="text-white">Build</span>{" "}
                 <span className="text-white">Your</span>{" "}
