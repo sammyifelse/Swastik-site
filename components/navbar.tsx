@@ -42,7 +42,9 @@ export function Navbar() {
       <div className="border-b border-black/10 bg-[#69b81f]">
         <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
           <Link href="#hero" className="flex items-center gap-3 py-4 md:py-5">
-            <Image src={finalLogo} alt="Swastik Advertising Logo" className="h-12 w-auto object-contain" priority />
+            <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/25 bg-white/10 shadow-[0_0_18px_rgba(0,0,0,0.15)] md:h-16 md:w-16">
+              <Image src={finalLogo} alt="Swastik Advertising Logo" className="h-11 w-11 object-contain md:h-12 md:w-12" priority />
+            </div>
             <div className="leading-tight">
               <p className="text-[15px] font-semibold text-white md:text-[18px]">Swastik Advertising</p>
               <p className="text-[11px] font-medium text-white/90 md:text-[13px]">Complete Advertising & Printing Solutions</p>

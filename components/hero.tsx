@@ -72,7 +72,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3">
               {services.map((service, index) => (
                 <motion.div
                   key={service.label}
@@ -81,7 +81,7 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.08 }}
                   className="rounded-[1.6rem] border border-[#7dff4f]/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] p-4 shadow-[0_0_36px_rgba(0,0,0,0.42)] backdrop-blur-sm"
                 >
-                  <div className="relative h-40 overflow-hidden rounded-2xl border border-[#7dff4f]/35 bg-black/35">
+                  <div className="relative h-52 overflow-hidden rounded-2xl border border-[#7dff4f]/35 bg-black/35 md:h-56 lg:h-60">
                     <Image
                       src={service.src}
                       alt={service.label}
