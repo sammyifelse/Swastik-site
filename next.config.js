@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -21,13 +18,6 @@ const nextConfig = {
   async rewrites() {
     return [];
   },
-  experimental: {
-    serverActions: true,
-  },
-  // Adding port configuration
-  serverOptions: {
-    port: 4000
-  }
 };
 
 module.exports = nextConfig;
