@@ -2,98 +2,217 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import finalLogo from "../logo final.png";
+import { Smile, Users, Briefcase, Trophy, Phone } from "lucide-react";
+
+// Helper component for decorative dot grids
+function DotGrid({ className, cols = 4, rows = 7 }: { className?: string; cols?: number; rows?: number }) {
+  return (
+    <div
+      className={`grid gap-[8px] ${className}`}
+      style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+    >
+      {Array.from({ length: cols * rows }).map((_, i) => (
+        <div key={i} className="h-[3px] w-[3px] rounded-full bg-white/20" />
+      ))}
+    </div>
+  );
+}
 
 export function Hero() {
-  const services = [
-    { src: "/1.jpeg", label: "Photo 01" },
-    { src: "/2.jpeg", label: "Photo 02" },
-    { src: "/3.jpeg", label: "Photo 03" },
-  ];
-
   return (
-    <section id="hero" className="relative isolate overflow-hidden bg-[#0b0b0b] pt-[148px] pb-8 text-white md:pt-[156px]">
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(116,255,52,0.16)_0%,rgba(5,5,5,0)_32%),radial-gradient(circle_at_bottom_right,rgba(116,255,52,0.1)_0%,rgba(5,5,5,0)_36%)]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0)_24%,rgba(255,255,255,0.02)_100%)]" />
-      <div className="absolute inset-0 -z-10 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]" />
+    <section id="hero" className="relative isolate overflow-visible bg-[#0b0b0b] pt-[130px] pb-32 text-white md:pt-[150px]">
+      {/* Background gradients and grid */}
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(105,184,31,0.12)_0%,rgba(5,5,5,0)_40%),radial-gradient(circle_at_bottom_right,rgba(105,184,31,0.08)_0%,rgba(5,5,5,0)_40%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0)_24%,rgba(255,255,255,0.01)_100%)]" />
+
+      {/* Ambient glowing wave at bottom-left */}
+      <div className="absolute left-0 bottom-0 -z-10 w-[350px] h-[350px] overflow-hidden pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,100 Q40,65 0,10 Z" fill="url(#green-radial)" opacity="0.35" className="blur-xl" />
+          <path d="M-10,95 C20,78 30,55 0,5" stroke="#69b81f" strokeWidth="1.8" fill="none" opacity="0.65" className="blur-[1px]" />
+          <path d="M-10,95 C20,78 30,55 0,5" stroke="#9cee3c" strokeWidth="0.6" fill="none" opacity="0.8" />
+          <defs>
+            <radialGradient id="green-radial" cx="0%" cy="100%" r="100%">
+              <stop offset="0%" stopColor="#69b81f" />
+              <stop offset="60%" stopColor="#69b81f" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
 
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_1.35fr] lg:items-stretch">
+        <div className="grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_1.4fr_0.7fr] lg:items-stretch">
+          
+          {/* Column 1: Logo Visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="relative lg:h-full"
+            className="relative flex items-center justify-center lg:h-full py-6"
           >
-            <div className="relative flex items-center justify-center overflow-hidden rounded-[2.2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_0_80px_rgba(0,0,0,0.45)] backdrop-blur-sm lg:h-full lg:py-8">
-              <div className="absolute inset-y-0 right-0 w-24 bg-[linear-gradient(180deg,rgba(125,255,79,0.35)_0%,rgba(125,255,79,0)_100%)] blur-2xl" />
-              <div className="relative flex items-center justify-center">
-                <div className="absolute h-[26rem] w-[26rem] rounded-full border border-white/12" />
-                <div className="absolute h-[21rem] w-[21rem] rounded-full border border-[#7dff4f]/35 shadow-[0_0_80px_rgba(125,255,79,0.15)]" />
-                <div className="absolute h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(125,255,79,0.18)_0%,rgba(125,255,79,0)_70%)]" />
-                <div className="relative flex h-[18rem] w-[18rem] items-center justify-center rounded-full border border-white/15 bg-black/40 shadow-[inset_0_0_40px_rgba(255,255,255,0.04)]">
-                  <Image src={finalLogo} alt="Swastik Advertising logo" className="h-[11.5rem] w-[11.5rem] object-contain drop-shadow-[0_0_26px_rgba(125,255,79,0.32)]" priority />
-                </div>
-              </div>
+            {/* Left Dot Grid Decoration */}
+            <DotGrid className="absolute left-[-10px] top-[15%] hidden xl:grid" cols={4} rows={7} />
 
-              {/* <div className="relative mt-8 space-y-3 text-center">
-                <p className="text-4xl font-black uppercase tracking-[0.18em] text-[#7dff4f] drop-shadow-[0_0_18px_rgba(125,255,79,0.35)]">Swastik</p>
-                <p className="text-lg font-semibold uppercase tracking-[0.6em] text-white/80">Advertising</p>
-                <p className="mx-auto max-w-xs border-t border-white/10 pt-4 text-sm uppercase tracking-[0.24em] text-white/70">We build your brand</p>
-              </div> */}
+            <div className="relative flex items-center justify-center">
+              {/* Glow Behind Logo */}
+              <div className="absolute h-[280px] w-[280px] md:h-[350px] md:w-[350px] rounded-full bg-[#69b81f]/10 blur-[70px]" />
+              
+              {/* Outer decorative ring */}
+              <div className="absolute h-[330px] w-[330px] rounded-full border border-[#69b81f]/15" />
+              {/* Inner decorative ring */}
+              <div className="absolute h-[280px] w-[280px] rounded-full border border-[#69b81f]/10" />
+              
+              {/* Logo Image */}
+              <div className="relative h-[260px] w-[260px] md:h-[320px] md:w-[320px] flex items-center justify-center">
+                <Image 
+                  src="/logo_transparent.png" 
+                  alt="Swastik Advertising Logo" 
+                  fill 
+                  className="object-contain drop-shadow-[0_0_35px_rgba(105,184,31,0.3)]" 
+                  priority 
+                />
+              </div>
             </div>
           </motion.div>
 
+          {/* Column 2: Content (Headline, Description, Buttons) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="space-y-6"
+            className="flex flex-col justify-center space-y-7 text-center lg:text-left z-10"
           >
-            <div className="text-center lg:text-left">
-              <h1 className="text-[clamp(2.5rem,4.2vw,5.4rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] whitespace-normal lg:whitespace-nowrap">
-                <span className="text-[#7dff4f] drop-shadow-[0_0_24px_rgba(125,255,79,0.35)]">We</span>{" "}
-                <span className="text-white">Build</span>{" "}
-                <span className="text-white">Your</span>{" "}
-                <span className="text-[#7dff4f]">Brand</span>{" "}
-                <span className="text-[#7dff4f]">Identity</span>
+            <div>
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[64px] font-bold leading-[1.08] tracking-tight">
+                <span className="block">
+                  <span className="text-[#65b91b]">We</span>{" "}
+                  <span className="text-white">Build</span>
+                </span>
+                <span className="block mt-1 whitespace-nowrap">
+                  <span className="text-white">Your</span>{" "}
+                  <span className="text-[#65b91b]">Brand Identity</span>
+                </span>
               </h1>
-              <p className="mt-4 text-base font-semibold text-white/80 lg:text-lg">
+              <p className="mt-4 md:mt-5 font-serif text-[17px] sm:text-[18px] md:text-[19px] lg:text-[20px] font-normal text-zinc-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 From ideas to impact, we shape your brand presence.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-              <a href="#services" onClick={(e) => { e.preventDefault(); const el = document.getElementById("services"); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" }); }} className="inline-flex items-center justify-center rounded-xl bg-[#7dff4f] px-7 py-4 text-sm font-semibold text-black shadow-[0_0_20px_rgba(125,255,79,0.28)] transition hover:bg-[#8cff5d]">
-                Explore Services
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 lg:justify-start pt-1">
+              <a 
+                href="#services" 
+                onClick={(e) => { 
+                  e.preventDefault(); 
+                  const el = document.getElementById("services"); 
+                  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" }); 
+                }} 
+                className="inline-flex items-center justify-center rounded-lg bg-[#65b91b] px-7 py-3.5 text-[15px] font-medium text-white shadow-[0_4px_18px_rgba(101,185,27,0.3)] transition-all hover:bg-[#5ba817] hover:shadow-[0_6px_24px_rgba(101,185,27,0.45)] hover:scale-[1.02] active:scale-[0.98] gap-1.5"
+              >
+                <span>Explore Services</span>
+                <span className="text-lg leading-none font-normal">→</span>
               </a>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); const el = document.getElementById("contact"); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" }); }} className="inline-flex items-center justify-center rounded-xl border border-[#7dff4f]/55 bg-transparent px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/5">
-                Contact Us
+              
+              <a 
+                href="#contact" 
+                onClick={(e) => { 
+                  e.preventDefault(); 
+                  const el = document.getElementById("contact"); 
+                  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: "smooth" }); 
+                }} 
+                className="inline-flex items-center justify-center rounded-lg border border-[#65b91b]/50 bg-black/40 px-7 py-3.5 text-[15px] font-medium text-white backdrop-blur-sm transition-all hover:bg-[#65b91b]/15 hover:border-[#65b91b] hover:scale-[1.02] active:scale-[0.98] gap-2.5"
+              >
+                <Phone className="h-4 w-4 text-[#65b91b]" />
+                <span>Contact Us</span>
               </a>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.08 }}
-                  className="rounded-[1.6rem] border border-[#7dff4f]/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] p-4 shadow-[0_0_36px_rgba(0,0,0,0.42)] backdrop-blur-sm"
-                >
-                  <div className="relative h-52 overflow-hidden rounded-2xl border border-[#7dff4f]/35 bg-black/35 md:h-56 lg:h-60">
-                    <Image
-                      src={service.src}
-                      alt={service.label}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.3)_100%)]" />
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </motion.div>
+
+          {/* Column 3: Potted Plant */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative flex items-end justify-center lg:justify-end self-end lg:h-full py-6"
+          >
+            {/* Right Dot Grid Decoration */}
+            <DotGrid className="absolute right-[-10px] top-[10%] hidden xl:grid" cols={4} rows={7} />
+
+            {/* Glowing Green Light Behind Plant */}
+            <div className="absolute bottom-[10%] right-[10%] -z-10 h-[180px] w-[180px] rounded-full bg-[#69b81f]/15 blur-[60px]" />
+
+            <div className="relative w-[180px] h-[250px] md:w-[220px] md:h-[310px]">
+              <Image 
+                src="/hero_plant.png" 
+                alt="Potted plant on pedestal" 
+                fill 
+                className="object-contain drop-shadow-2xl [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]" 
+                priority 
+              />
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* Stats bar (overlay) */}
+      <div className="absolute left-0 right-0 bottom-[-48px]">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="-mt-6 rounded-2xl border border-white/10 bg-[#0d0d0d]/85 py-6 px-8 shadow-[0_20px_50px_rgba(0,0,0,0.85)] backdrop-blur-md relative overflow-hidden">
+            
+            {/* Stats Dot Grid on far right */}
+            <div className="absolute right-6 top-[25%] hidden xl:block pointer-events-none">
+              <DotGrid cols={4} rows={5} />
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+              
+              {/* Stat 1 */}
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0b] border border-[#69b81f]/45 text-white shadow-[0_0_15px_rgba(105,184,31,0.15)]">
+                  <Smile className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-extrabold text-white">12+</p>
+                  <p className="text-xs text-neutral-400">Years of Experience</p>
+                </div>
+              </div>
+
+              {/* Stat 2 */}
+              <div className="flex items-center gap-4 sm:pl-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0b] border border-[#69b81f]/45 text-white shadow-[0_0_15px_rgba(105,184,31,0.15)]">
+                  <Users className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-extrabold text-white">500+</p>
+                  <p className="text-xs text-neutral-400">Happy Clients</p>
+                </div>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="flex items-center gap-4 sm:pl-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0b] border border-[#69b81f]/45 text-white shadow-[0_0_15px_rgba(105,184,31,0.15)]">
+                  <Briefcase className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-extrabold text-white">1000+</p>
+                  <p className="text-xs text-neutral-400">Projects Completed</p>
+                </div>
+              </div>
+
+              {/* Stat 4 */}
+              <div className="flex items-center gap-4 sm:pl-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0b] border border-[#69b81f]/45 text-white shadow-[0_0_15px_rgba(105,184,31,0.15)]">
+                  <Trophy className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-extrabold text-white">15+</p>
+                  <p className="text-xs text-neutral-400">Awards Won</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>

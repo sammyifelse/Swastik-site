@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Clock3, Mail, Phone } from "lucide-react";
-import finalLogo from "../logo final.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,11 +24,11 @@ export function Navbar() {
 
   const navLinks = [
     { href: "#hero", label: "Home" },
-    { href: "#about", label: "About Us" },
+    { href: "#about", label: "About Swastik" },
     { href: "#services", label: "Services" },
-    { href: "#management", label: "Management" },
-    { href: "#clients", label: "Our Clients" },
-    { href: "#contact", label: "Contact Us" },
+    { href: "#clients", label: "Our Happy Clients" },
+    { href: "#portfolio", label: "Our Portfolio" },
+    { href: "#management", label: "Team Management" },
   ];
 
   return (
@@ -41,37 +40,40 @@ export function Navbar() {
     >
       <div className="border-b border-black/10 bg-[#69b81f]">
         <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
-          <Link href="#hero" className="flex items-center gap-3 py-4 md:py-5">
-            <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/25 bg-white/10 shadow-[0_0_18px_rgba(0,0,0,0.15)] md:h-16 md:w-16">
-              <Image src={finalLogo} alt="Swastik Advertising Logo" className="h-11 w-11 object-contain md:h-12 md:w-12" priority />
+          <Link href="#hero" className="flex items-center gap-3 py-3.5">
+            <div className="flex h-10 w-10 items-center justify-center md:h-11 md:w-11">
+              <Image src="/logo_transparent.png" alt="Swastik Advertising Logo" width={44} height={44} className="h-full w-full object-contain" priority />
             </div>
             <div className="leading-tight">
-              <p className="text-[15px] font-semibold text-white md:text-[18px]">Swastik Advertising</p>
-              <p className="text-[11px] font-medium text-white/90 md:text-[13px]">Complete Advertising & Printing Solutions</p>
+              <p className="text-[17px] md:text-[19px] font-bold text-white tracking-wide">Swastik Advertising</p>
+              <p className="text-[11px] md:text-[12px] font-normal text-white/90 tracking-normal">Complete Advertising & Printing Solutions</p>
             </div>
           </Link>
 
-          <nav className="hidden items-stretch gap-0 lg:flex">
+          <nav className="hidden items-center gap-1 xl:gap-2 lg:flex">
             {navLinks.map((link) => (
-              <motion.div key={link.href} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
-                <Link
-                  href={link.href}
-                  className={`relative flex items-center px-5 py-5 text-[13px] font-semibold uppercase tracking-[0.12em] transition ${link.href === "#hero" ? "text-[#d6ff87] after:absolute after:bottom-3 after:left-5 after:h-[2px] after:w-7 after:bg-[#d6ff87]" : "text-white hover:text-[#f3ffd0]"}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const elementId = link.href.replace("#", "");
-                    const element = document.getElementById(elementId);
-                    if (element) {
-                      window.scrollTo({
-                        top: element.getBoundingClientRect().top + window.scrollY - 110,
-                        behavior: "smooth",
-                      });
-                    }
-                  }}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative flex items-center px-3.5 py-4 text-[13.5px] md:text-[14px] font-medium transition ${
+                  link.href === "#hero" 
+                    ? "text-[#d8ff9e] after:absolute after:bottom-2.5 after:left-[calc(50%-10px)] after:h-[2px] after:w-[20px] after:rounded-full after:bg-[#d8ff9e]" 
+                    : "text-white hover:text-[#e8ffc2]"
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = link.href === "#portfolio" ? "services" : link.href.replace("#", "");
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    window.scrollTo({
+                      top: element.getBoundingClientRect().top + window.scrollY - 110,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+              >
+                {link.label}
+              </Link>
             ))}
           </nav>
 
